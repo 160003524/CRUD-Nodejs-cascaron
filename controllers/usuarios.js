@@ -56,10 +56,12 @@ const usuariosPatch = (req, res = response) => {
 
 const usuariosDelete = async (req, res = response) => {
   const { id } = req.params;
+  //const uid = req.uid;
   //fisicamente se borra
   // const usuario = await Usuario.findByIdAndDelete(id);
   //lo borra de la vista, pero no de la BD
   const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
+  //const usuarioAutenticado = req.usuario;
   res.json(usuario);
 };
 
